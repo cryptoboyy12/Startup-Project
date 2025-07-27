@@ -1,35 +1,36 @@
-:root{
-  --color:#b499ff;
+:root {
+  --color: #b499ff;
 }
 
-*{
+* {
   font-family: 'Poppins', sans-serif;
-  margin:0; padding:0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   text-transform: capitalize;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   text-decoration: none;
 }
 
-html{
+html {
   font-size: 62.5%;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding:2rem 2rem;
+  padding: 2rem 2rem;
   position: fixed;
-  top:0; left: 0;
+  top: 0;
+  left: 0;
   z-index: 100;
   background-color: #b499ff;
-  
 }
 
 .header .logo {
@@ -43,71 +44,70 @@ body{
   display: block;
 }
 
-.header .navbar ul{
+.header .navbar ul {
   list-style-type: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.header .navbar ul li{
-  margin:0 1.5rem;
+.header .navbar ul li {
+  margin: 0 1.5rem;
 }
 
-.header .navbar ul li a{
+.header .navbar ul li a {
   font-size: 2rem;
-  color:#000000;
+  color: #000000;
 }
 
-.header .navbar ul li a:hover{
-  color:#000000;
+.header .navbar ul li a:hover {
+  color: #000000;
 }
 
-.header .fa-bars{
-  color:#000000;
+.header .fa-bars {
+  color: #000000;
   cursor: pointer;
   font-size: 3rem;
   display: none;
 }
 
-
-@media (max-width:768px){
-
-  .header .fa-bars{
+@media (max-width: 768px) {
+  .header .fa-bars {
     display: block;
   }
 
-  .header .navbar{
+  .header .navbar {
     position: fixed;
-    top:-120%; left: 0;
+    top: -120%;
+    left: 0;
     height: auto;
     width: 100%;
     background-color: #b499ff;
     z-index: 1000;
-    border-top: .1rem solid rgba(0,0,0,.3);
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.3);
   }
 
-  .header .navbar ul{
+  .header .navbar ul {
     height: 100%;
     width: 100%;
     flex-flow: column;
   }
 
-  .header .navbar ul li{
-    margin:1rem 0;
+  .header .navbar ul li {
+    margin: 1rem 0;
   }
 
-  .header .navbar ul li a{
+  .header .navbar ul li a {
     color: #444;
     font-size: 2.4rem;
   }
 
-  .header .fa-times{
+  .header .fa-times {
     transform: rotate(180deg);
   }
 
-  .header .nav-toggle{
-    top:5.8rem;
+  .header .nav-toggle {
+    top: 5.8rem;
   }
 }
 
@@ -204,6 +204,57 @@ body{
 
 .details-btn:hover {
   background-color: #155ab6;
+}
+
+.add-startup-section {
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: #f7f8fc;
+  border-radius: 10px;
+}
+
+.add-startup-section .section-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.add-startup-section form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.add-startup-section form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  color: #2c2e4a;
+}
+
+.add-startup-section form input[type="text"],
+.add-startup-section form input[type="url"],
+.add-startup-section form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.add-startup-section form button[type="submit"] {
+  background-color: var(--color);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-startup-section form button[type="submit"]:hover {
+  background-color: #9a7fff;
 }
 
 .footer {
@@ -316,7 +367,8 @@ body{
   .footer-top {
     flex-direction: column;
   }
-  .footer-left, .footer-right {
+  .footer-left,
+  .footer-right {
     max-width: 100%;
     margin-bottom: 2rem;
   }
@@ -325,7 +377,9 @@ body{
     gap: 1rem;
     text-align: center;
   }
-  .footer-bottom-left, .footer-bottom-center, .footer-bottom-right {
+  .footer-bottom-left,
+  .footer-bottom-center,
+  .footer-bottom-right {
     flex: none;
   }
   .footer-bottom-right {

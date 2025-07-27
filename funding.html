@@ -37,6 +37,32 @@
     <div class="events-container funding-container">
     </div>
   </section>
+
+ 
+  <section class="provide-funding-section" style="max-width: 600px; margin: 50px auto; padding: 2rem; background-color: #f7f8fc; border-radius: 10px;">
+    <h2 class="section-title" style="font-size: 3rem; margin-bottom: 2rem; text-align: center;">Provide Funding</h2>
+    <form id="fundingForm">
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="startupName" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Startup Name</label>
+        <input type="text" id="startupName" name="startupName" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="funderName" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Funder Name</label>
+        <input type="text" id="funderName" name="funderName" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="amount" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Funding Amount</label>
+        <input type="number" id="amount" name="amount" min="1" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="comments" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Comments</label>
+        <textarea id="comments" name="comments" rows="3" style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+      </div>
+      <button type="submit" style="background-color: var(--color); color: white; padding: 1rem 2rem; font-size: 1.6rem; border: none; border-radius: 5px; cursor: pointer;">Submit Funding</button>
+    </form>
+    <div id="fundingList" style="margin-top: 2rem;"></div>
+  </section>
+
   <footer class="footer" style="margin-top: 50px;">
     <div class="footer-top">
       <div class="footer-left">

@@ -45,42 +45,98 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const container = document.querySelector('.events-container');
-  container.innerHTML = '';
+  const form = document.getElementById('startupForm');
+  let editIndex = -1;
 
-  startups.forEach(startup => {
-    const eventBox = document.createElement('div');
-    eventBox.classList.add('event-box');
+  function renderStartups() {
+    container.innerHTML = '';
+    startups.forEach((startup, index) => {
+      const eventBox = document.createElement('div');
+      eventBox.classList.add('event-box');
 
-    const img = document.createElement('img');
-    img.src = startup.image;
-    img.alt = startup.name;
-    eventBox.appendChild(img);
+      const img = document.createElement('img');
+      img.src = startup.image;
+      img.alt = startup.name;
+      eventBox.appendChild(img);
 
-    const founder = document.createElement('p');
-    founder.classList.add('event-date');
-    founder.textContent = `Founder: ${startup.founder}`;
-    eventBox.appendChild(founder);
+      const founder = document.createElement('p');
+      founder.classList.add('event-date');
+      founder.textContent = `Founder: ${startup.founder}`;
+      eventBox.appendChild(founder);
 
-    const title = document.createElement('h3');
-    title.classList.add('event-title');
-    title.textContent = startup.name;
-    eventBox.appendChild(title);
+      const title = document.createElement('h3');
+      title.classList.add('event-title');
+      title.textContent = startup.name;
+      eventBox.appendChild(title);
 
-    const category = document.createElement('p');
-    category.classList.add('event-category');
-    category.textContent = startup.category;
-    eventBox.appendChild(category);
+      const category = document.createElement('p');
+      category.classList.add('event-category');
+      category.textContent = startup.category;
+      eventBox.appendChild(category);
 
-    const description = document.createElement('p');
-    description.classList.add('event-description');
-    description.textContent = `"${startup.description}"`;
-    eventBox.appendChild(description);
+      const description = document.createElement('p');
+      description.classList.add('event-description');
+      description.textContent = `"${startup.description}"`;
+      eventBox.appendChild(description);
 
-    const button = document.createElement('button');
-    button.classList.add('details-btn');
-    button.textContent = 'More Details';
-    eventBox.appendChild(button);
+      // Edit button
+      const editButton = document.createElement('button');
+      editButton.classList.add('details-btn');
+      editButton.textContent = 'Edit';
+      editButton.style.marginRight = '10px';
+      editButton.addEventListener('click', () => {
+        editIndex = index;
+        form.name.value = startup.name;
+        form.founder.value = startup.founder;
+        form.category.value = startup.category;
+        form.description.value = startup.description;
+        form.image.value = startup.image;
+        form.querySelector('button[type="submit"]').textContent = 'Update Startup';
+      });
+      eventBox.appendChild(editButton);
 
-    container.appendChild(eventBox);
+      // Delete button
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('details-btn');
+      deleteButton.textContent = 'Delete';
+      deleteButton.style.backgroundColor = '#e74c3c';
+      deleteButton.addEventListener('click', () => {
+        startups.splice(index, 1);
+        if (editIndex === index) {
+          editIndex = -1;
+          form.reset();
+          form.querySelector('button[type="submit"]').textContent = 'Add Startup';
+        }
+        renderStartups();
+      });
+      eventBox.appendChild(deleteButton);
+
+      container.appendChild(eventBox);
+    });
+  }
+
+  renderStartups();
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const startupData = {
+      name: form.name.value.trim(),
+      founder: form.founder.value.trim(),
+      category: form.category.value.trim(),
+      description: form.description.value.trim(),
+      image: form.image.value.trim()
+    };
+
+    if (editIndex === -1) {
+      startups.push(startupData);
+    } else {
+      startups[editIndex] = startupData;
+      editIndex = -1;
+      form.querySelector('button[type="submit"]').textContent = 'Add Startup';
+    }
+
+    renderStartups();
+    form.reset();
   });
 });

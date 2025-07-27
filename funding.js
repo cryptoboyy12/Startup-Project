@@ -98,4 +98,47 @@ function renderFunding() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', renderFunding);
+document.addEventListener('DOMContentLoaded', () => {
+  renderFunding();
+
+  const fundingForm = document.getElementById('fundingForm');
+  const fundingList = document.getElementById('fundingList');
+  const fundings = [];
+
+  function renderFundingList() {
+    fundingList.innerHTML = '';
+    if (fundings.length === 0) {
+      fundingList.textContent = 'No funding submissions yet.';
+      return;
+    }
+    fundings.forEach((funding, index) => {
+      const div = document.createElement('div');
+      div.className = 'event-box';
+      div.style.marginBottom = '1rem';
+
+      const info = document.createElement('p');
+      info.innerHTML = `<strong>Startup:</strong> ${funding.startupName} <br/>
+                        <strong>Funder:</strong> ${funding.funderName} <br/>
+                        <strong>Amount:</strong> ₹${funding.amount} <br/>
+                        <strong>Comments:</strong> ${funding.comments || 'N/A'}`;
+      div.appendChild(info);
+
+      fundingList.appendChild(div);
+    });
+  }
+
+  fundingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newFunding = {
+      startupName: fundingForm.startupName.value.trim(),
+      funderName: fundingForm.funderName.value.trim(),
+      amount: fundingForm.amount.value.trim(),
+      comments: fundingForm.comments.value.trim()
+    };
+
+    fundings.push(newFunding);
+    renderFundingList();
+    fundingForm.reset();
+  });
+});

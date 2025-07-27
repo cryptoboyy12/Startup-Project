@@ -38,6 +38,34 @@
     </div>
   </section>
 
+  <!-- New section for adding startup details -->
+  <section class="add-startup-section" style="margin: 50px auto; max-width: 600px; padding: 2rem; background-color: #f7f8fc; border-radius: 10px;">
+    <h2 class="section-title" style="font-size: 3rem; margin-bottom: 2rem;">Add Your Startup</h2>
+    <form id="startupForm">
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="name" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Startup Name</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="founder" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Founder</label>
+        <input type="text" id="founder" name="founder" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="category" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Category</label>
+        <input type="text" id="category" name="category" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="description" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Description</label>
+        <textarea id="description" name="description" required rows="3" style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+      </div>
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="image" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Image URL</label>
+        <input type="url" id="image" name="image" required style="width: 100%; padding: 0.8rem; font-size: 1.6rem; border-radius: 5px; border: 1px solid #ccc;" />
+      </div>
+      <button type="submit" style="background-color: var(--color); color: white; padding: 1rem 2rem; font-size: 1.6rem; border: none; border-radius: 5px; cursor: pointer;">Add Startup</button>
+    </form>
+  </section>
+
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-left">
